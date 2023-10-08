@@ -1,0 +1,30 @@
+name: react-app
+on:
+    push:
+        branches:  
+        - master
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Install Node
+          uses: actions/steup-node@v3
+          with:
+            node-version: 18  
+        
+        - name: Checkout Our Repo
+          uses: actions/checkout@v3
+          with:
+            ref: master
+
+        - name: Build This App
+          run: |
+            npm install
+            npm run build
+
+        - name: Deploy on EC2
+          run: |
+            apt install sshpass
+            sshpass -p ${{secrets.EC2_PASS}} scp -r build/ ubuntu@ec2-3-82-18-64.compute-1.amazonaws.com:/var/www/html/   
+          
