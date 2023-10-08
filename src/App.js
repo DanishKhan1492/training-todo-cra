@@ -18,7 +18,7 @@ const TodoInput = ({ todo, setTodo, addTodo, setTodos, todos }) => {
         id="todo-input"
         name="todo"
         value={todo}
-        placeholder="Let's get workin'..."
+        placeholder="Start Adding your TODO's"
         onChange={(e) => {
           setTodo(e.target.value);
         }}
