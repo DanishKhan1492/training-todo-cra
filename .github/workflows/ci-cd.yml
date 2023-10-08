@@ -9,7 +9,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
         - name: Install Node
-          uses: actions/steup-node@v3
+          uses: actions/setup-node@v3
           with:
             node-version: 18  
         
