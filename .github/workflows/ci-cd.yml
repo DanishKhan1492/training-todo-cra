@@ -26,4 +26,4 @@ jobs:
         - name: Deploy on EC2
           run: |
             ls -al build/
-            sshpass -p ${{secrets.EC2_PASS}} scp -r build/ ubuntu@ec2-3-82-18-64.compute-1.amazonaws.com:/var/www/html/
+            sshpass -p "${{secrets.EC2_PASS}}" scp -r build/ ubuntu@ec2-3-82-18-64.compute-1.amazonaws.com:/var/www/html/
