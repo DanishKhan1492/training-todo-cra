@@ -8,7 +8,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "${params}"
-                echo "Building the project ${params.MYPARAM1}"
+                echo "Building the project ${MYPARAM1}"
             }
         }
         stage('Test') {
@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo "Deploying the project ${params.MYPARAM2}"
+                echo "Deploying the project ${MYPARAM2}"
             }
         }
     }
