@@ -1,9 +1,14 @@
 pipeline {
     agent any
+    parameters {
+        string(name: 'PARAM1', description: 'Param 1?')
+        string(name: 'PARAM2', description: 'Param 2?')
+    }
     stages {
         stage('Build') {
             steps {
-                echo "Building the project"
+                echo "${params}"
+                echo "Building the project ${params.MYPARAM1}"
             }
         }
         stage('Test') {
@@ -13,7 +18,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo "Deploying the project"
+                echo "Deploying the project ${params.MYPARAM2}"
             }
         }
     }
